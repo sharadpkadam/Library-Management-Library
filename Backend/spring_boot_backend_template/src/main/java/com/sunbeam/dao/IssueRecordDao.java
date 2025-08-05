@@ -2,6 +2,8 @@ package com.sunbeam.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface IssueRecordDao extends JpaRepository<IssueRecordDao, Integer> {
+import com.sunbeam.entities.IssueRecord;
+
+public interface IssueRecordDao extends JpaRepository<IssueRecord, Integer> {
 
 }

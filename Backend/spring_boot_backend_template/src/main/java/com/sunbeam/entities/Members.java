@@ -27,7 +27,7 @@ public class Members {
     private String email;
     private String phone;
     private String passwd;
-    private String role;
+//    private String role;
 
     @OneToMany(mappedBy = "member")
     private List<Payment> payments;
@@ -35,14 +35,14 @@ public class Members {
     @OneToMany(mappedBy = "member")
     private List<IssueRecord> issueRecords;
 
-	public Members(String name, String email, String phone, String passwd, String role, List<Payment> payments,
+	public Members(String name, String email, String phone, String passwd, List<Payment> payments,
 			List<IssueRecord> issueRecords) {
 		super();
 		this.name = name;
 		this.email = email;
 		this.phone = phone;
 		this.passwd = passwd;
-		this.role = role;
+//		this.role = role;
 		this.payments = payments;
 		this.issueRecords = issueRecords;
 	}
