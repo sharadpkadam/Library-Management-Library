@@ -1,30 +1,40 @@
-// Login.jsx
-import React, { useState } from 'react';
-import './auth.css';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+// src/components/Login.jsx
+import React, { useState } from "react";
+import "./auth.css";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom";
+import { loginUser } from "../services/authService";
 
 function Login() {
   const [credentials, setCredentials] = useState({
-    username: '',
-    password: '',
+    email: "",
+    password: "",
   });
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!credentials.username || !credentials.password) {
-      toast.error('Please enter both username and password.');
+    if (!credentials.email || !credentials.password) {
+      toast.error("Please enter both email and password.");
       return;
     }
 
-    // 🔗 API call would go here
-    toast.success('Login successful!');
-    console.log('Logging in with:', credentials);
+    try {
+      const data = await loginUser(credentials);
+      toast.success("Login successful!");
+      localStorage.setItem("token", data.token); // assuming your API returns token
+      setTimeout(() => {
+        navigate("/dashboard");
+      }, 1000);
+    } catch (error) {
+      toast.error(error);
+    }
   };
 
   return (
@@ -33,11 +43,11 @@ function Login() {
         <h2 className="auth-title">Librarian Login</h2>
         <form onSubmit={handleSubmit}>
           <input
-            type="text"
-            name="username"
-            placeholder="Username"
+            type="email"
+            name="email"
+            placeholder="email or username"
             className="form-control"
-            value={credentials.username}
+            value={credentials.email}
             onChange={handleChange}
             required
           />
@@ -50,10 +60,12 @@ function Login() {
             onChange={handleChange}
             required
           />
-          <button type="submit" className="btn-submit">Login</button>
+          <button type="submit" className="btn-submit">
+            Login
+          </button>
         </form>
         <p className="redirect-msg">
-          Don't have an account? <a href="/register">Join Library</a>
+          Don't have an account? <a href="/signup">Join Library</a>
         </p>
       </div>
       <ToastContainer />

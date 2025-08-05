@@ -11,7 +11,7 @@ function Home() {
             <div className="logo">Library Management System</div>
             <div className="nav-buttons">
               <a href="/login" className="btn">Sign In</a>
-              <a href="/register" className="btn btn-primary">Join Library</a>
+              <a href="/signup" className="btn btn-primary">Join Library</a>
             </div>
           </div>
         </div>

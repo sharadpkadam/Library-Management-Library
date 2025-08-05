@@ -7,7 +7,7 @@ import {
   FaTachometerAlt,
   FaSignOutAlt,
 } from "react-icons/fa";
-import { NavLink, useNavigate, Outlet } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 export default function SidebarLayout() {
   const navigate = useNavigate();
@@ -18,62 +18,54 @@ export default function SidebarLayout() {
   };
 
   return (
-    <div className="container-fluid">
-      <div className="row">
-        {/* Sidebar */}
-        <div
-          className="col-md-3 col-lg-2 bg-dark text-white d-flex flex-column justify-content-between min-vh-100"
-          style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            padding: "20px",
-            width: "240px",
-          }}
-        >
-          <div>
-            <h4 className="mb-4">📚 Library</h4>
-            <ul className="nav flex-column">
-              <li className="nav-item mb-2">
-                <NavLink to="dashboard" className="nav-link text-white d-flex align-items-center">
-                  <FaTachometerAlt className="me-2" /> Dashboard
-                </NavLink>
-              </li>
-              <li className="nav-item mb-2">
-                <NavLink to="books" className="nav-link text-white d-flex align-items-center">
-                  <FaBook className="me-2" /> Books
-                </NavLink>
-              </li>
-              <li className="nav-item mb-2">
-                <NavLink to="members" className="nav-link text-white d-flex align-items-center">
-                  <FaUserFriends className="me-2" /> Members
-                </NavLink>
-              </li>
-              <li className="nav-item mb-2">
-                <NavLink to="issue-return" className="nav-link text-white d-flex align-items-center">
-                  <FaExchangeAlt className="me-2" /> Issue/Return
-                </NavLink>
-              </li>
-              <li className="nav-item mb-2">
-                <NavLink to="payments" className="nav-link text-white d-flex align-items-center">
-                  <FaMoneyCheckAlt className="me-2" /> Payments
-                </NavLink>
-              </li>
-            </ul>
-          </div>
-          <button
-            className="btn btn-danger w-100 d-flex align-items-center justify-content-center mt-4"
-            onClick={handleLogout}
-          >
-            <FaSignOutAlt className="me-2" /> Logout
-          </button>
-        </div>
-
-        {/* Main Content */}
-        <div className="col offset-md-3 offset-lg-2" style={{ marginLeft: "240px", padding: "2rem" }}>
-          <Outlet />
-        </div>
+    <div
+      className="bg-dark text-white d-flex flex-column justify-content-between min-vh-100"
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "240px",
+        padding: "20px",
+        zIndex: 1000,
+      }}
+    >
+      <div>
+        <h4 className="mb-4">📚 Library</h4>
+        <ul className="nav flex-column">
+          <li className="nav-item mb-2">
+            <NavLink to="/dashboard" className="nav-link text-white d-flex align-items-center">
+              <FaTachometerAlt className="me-2" /> Dashboard
+            </NavLink>
+          </li>
+          <li className="nav-item mb-2">
+            <NavLink to="/books" className="nav-link text-white d-flex align-items-center">
+              <FaBook className="me-2" /> Books
+            </NavLink>
+          </li>
+          <li className="nav-item mb-2">
+            <NavLink to="/members" className="nav-link text-white d-flex align-items-center">
+              <FaUserFriends className="me-2" /> Members
+            </NavLink>
+          </li>
+          <li className="nav-item mb-2">
+            <NavLink to="/issue-return" className="nav-link text-white d-flex align-items-center">
+              <FaExchangeAlt className="me-2" /> Issue/Return
+            </NavLink>
+          </li>
+          <li className="nav-item mb-2">
+            <NavLink to="/payments" className="nav-link text-white d-flex align-items-center">
+              <FaMoneyCheckAlt className="me-2" /> Payments
+            </NavLink>
+          </li>
+        </ul>
       </div>
+
+      <button
+        className="btn btn-danger w-100 d-flex align-items-center justify-content-center mt-4"
+        onClick={handleLogout}
+      >
+        <FaSignOutAlt className="me-2" /> Logout
+      </button>
     </div>
   );
 }
