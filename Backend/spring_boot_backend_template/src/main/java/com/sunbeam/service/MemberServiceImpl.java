@@ -11,6 +11,7 @@ import com.sunbeam.dto.LoginDto;
 import com.sunbeam.dto.MemberDto;
 import com.sunbeam.dto.SignUpDto;
 import com.sunbeam.entities.Members;
+import com.sunbeam.entities.Role;
 
 import lombok.AllArgsConstructor;
 
@@ -31,7 +32,7 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public MemberDto login(LoginDto dto) {
-		Members user = memberDao.findByEmailAndPasswd(dto.getEmail(), dto.getPasswd()).orElseThrow(() -> new InvalidInputException("Invalid Email or Password"));
+		Members user = memberDao.findByEmailAndPasswdAndRole(dto.getEmail(), dto.getPasswd(),Role.LIBRARIAN).orElseThrow(() -> new InvalidInputException("Invalid Email or Password"));
 		return modelMapper.map(user, MemberDto.class);
 	}
 }

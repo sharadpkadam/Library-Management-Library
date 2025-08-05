@@ -3,6 +3,8 @@ package com.sunbeam.entities;
 import java.util.List;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -27,7 +29,8 @@ public class Members {
     private String email;
     private String phone;
     private String passwd;
-//    private String role;
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     @OneToMany(mappedBy = "member")
     private List<Payment> payments;
@@ -42,7 +45,6 @@ public class Members {
 		this.email = email;
 		this.phone = phone;
 		this.passwd = passwd;
-//		this.role = role;
 		this.payments = payments;
 		this.issueRecords = issueRecords;
 	}
