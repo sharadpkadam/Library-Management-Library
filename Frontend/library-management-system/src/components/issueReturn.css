@@ -1,0 +1,87 @@
+.issue-container {
+  padding: 2rem;
+  background-color: #f4f6f8;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.issue-container h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.issue-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  max-width: 800px;
+  width: 100%;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.issue-form select,
+.issue-form input[type="date"] {
+  flex: 1 1 200px;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.issue-form button {
+  padding: 0.75rem 1.5rem;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.issue-form button:hover {
+  background-color: #555;
+}
+
+.issued-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  max-width: 1000px;
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.issued-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.issued-table th,
+.issued-table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.issued-table th {
+  background-color: #f0f0f0;
+  font-weight: 600;
+}
+
+.return-btn {
+  padding: 0.5rem 1rem;
+  background-color: crimson;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.return-btn:hover {
+  background-color: darkred;
+}
