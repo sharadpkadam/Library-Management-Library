@@ -1,0 +1,77 @@
+.books-container {
+  padding: 2rem;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.books-container h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.book-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+  max-width: 800px;
+  width: 100%;
+}
+
+.book-form input {
+  flex: 1 1 200px;
+  padding: 0.75rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.book-form button {
+  padding: 0.75rem 1.5rem;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.book-form button:hover {
+  background-color: #555;
+}
+
+.book-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  max-width: 1000px;
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.book-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.book-table th, .book-table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.book-table th {
+  background-color: #f0f0f0;
+  font-weight: 600;
+}
+
+.book-table tr:hover {
+  background-color: #f9f9f9;
+}
